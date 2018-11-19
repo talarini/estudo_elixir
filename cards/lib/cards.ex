@@ -8,7 +8,7 @@ defmodule Cards do
   """
   def create_deck do
     values = ["Ás", "Dois", "Três", "Quatro", "Valete", "Rei"]
-    suits = ["Espadas", "Ouros", "Copas"]
+    suits = ["Espadas", "Ouros", "Copas", "Paus"]
 
     for suit <- suits , value <- values do
       "#{value} de #{suit}"
@@ -19,6 +19,16 @@ defmodule Cards do
     Enum.shuffle(deck)
   end
 
+  @doc """
+    Determines wheter a deck contains a given card
+
+  ## Examples
+
+      iex> deck = Cards.create_deck
+      iex> Cards.contains?(deck, "Rei de Copas")
+      true
+
+  """
   def contains?(deck, card) do
     Enum.member?(deck, card) 
   end
@@ -28,7 +38,6 @@ defmodule Cards do
   The `hand_size` argument indicates how many cards should be in hand
 
   ## Examples
-
 
       iex> deck = Cards.create_deck
       iex> {hand, deck} = Cards.deal(deck, 1)
