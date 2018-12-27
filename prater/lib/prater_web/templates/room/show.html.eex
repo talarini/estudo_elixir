@@ -1,0 +1,4 @@
+<h2> Room Details </h2>
+<div><%= @room.description %></div>
+<%= link "Edit", to: Routes.room_path(@conn, :edit, @room.id), class: "btn btn-default" %>
+<%= link "Delete", to: Routes.room_path(@conn, :delete, @room), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger" %>
